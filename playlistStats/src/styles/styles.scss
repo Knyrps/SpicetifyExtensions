@@ -2,6 +2,9 @@
 @import "vars.scss";
 
 .playlist-information-wrapper {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
     &__inner {
         padding: $innerElementPaddingY $innerElementPaddingX;
         background-color: rgba(var(--spice-rgb-main-secondary), 0.5) !important;
