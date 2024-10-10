@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { customTrim } from "./utilHelper";
+import { getWidth } from "./clientSizeHelper";
 
 export class DOMHelper {
     constructor() {
@@ -83,14 +84,39 @@ export class DOMHelper {
 }
 
 const DataElement = Spicetify.React.memo(() => {
+    const [dropdownActive, setDropdownActive] = useState<Boolean>(false);
+
     return (
-        <div className="playlist-information-wrapper__inner dropdown">
-            <div className="grid">
-                <div className="information-column">Col 1</div>
-                <div className="information-column">Col 2</div>
-                <div className="information-column">Col 3</div>
+        <div
+            className={`playlist-information-wrapper__inner dropdown ${
+                dropdownActive ? "active" : ""
+            }`}
+        >
+            <div
+                className="dropdown-controls"
+                onClick={() => setDropdownActive(!dropdownActive)}
+            >
+                <div className="information-row title">Statistics</div>
                 <DropdownToggle />
             </div>
+            <hr />
+            <div className="contents">
+                <div className="information-row">
+                    <span>Song Ratio: 100 (Knyrps) | 150 (Armenier)</span>
+                </div>
+                <div className="information-row">Row 2</div>
+                <div className="information-row">Row 3</div>
+            </div>
+        </div>
+    );
+});
+
+const DropdownToggle = Spicetify.React.memo(() => {
+    return (
+        <div className="dropdown-toggle-wrap">
+            <button className="button-dropdown Button-buttonSecondary-medium-useBrowserDefaultFocusStyle encore-text-body-medium-bold">
+                <div className="button-dropdown__icon"></div>
+            </button>
         </div>
     );
 });
@@ -106,23 +132,5 @@ const SpotifyButton = Spicetify.React.memo(
         }`;
 
         return <button {...props}>{props.children}</button>;
-    }
-);
-
-const DropdownToggle = Spicetify.React.memo(
-    (
-        props: React.JSX.IntrinsicAttributes &
-            React.ClassAttributes<HTMLButtonElement> &
-            React.ButtonHTMLAttributes<HTMLButtonElement>
-    ) => {
-        props.className = `button-dropdown Button-buttonSecondary-medium-useBrowserDefaultFocusStyle encore-text-body-medium-bold ${
-            props.className || ""
-        }`;
-
-        return (
-            <button {...props}>
-                <div className="button-dropdown__icon"></div>
-            </button>
-        );
     }
 );
