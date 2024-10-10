@@ -56,6 +56,12 @@
         max-height: fit-content;
     }
 
+    &:not(.active) {
+        &>*:not(.dropdown-controls) {
+            display: none;
+        }
+    }
+
     &-controls {
         column-gap: 1rem;
         height: 100%;
