@@ -26,7 +26,7 @@
     gap: 1rem;
 
     .information-row {
-        border: green solid 1px;
+        border: 1px solid rgba(var(--spice-rgb-selected-row), .1);
     }
 }
 
@@ -113,6 +113,118 @@
     &.active {
         .button-dropdown__icon {
             transform: scaleY(-1);
+        }
+    }
+}
+
+.pieChart-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: fit-content;
+
+    &>div {
+        height: 100%;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            margin-bottom: .6rem;
+        }
+    }
+
+    &__pie {
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 1;
+        margin: 0 auto;
+
+        .recharts-tooltip-wrapper {
+            background-color: transparent !important;
+        }
+
+        .recharts-sector {
+            stroke: var(--spice-main-secondary);
+            stroke-width: 1%;
+        }
+
+        .pieChart-tooltip {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(var(--spice-rgb-main-secondary), .5);
+        }
+    }
+
+    &__additional {
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+
+            .information-line {
+                width: 100%;
+                display: inline-flex;
+                justify-content: space-between;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: .2rem 0;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid rgba(var(--spice-rgb-selected-row), .1);
+                }
+
+                p {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    line-height: 130%;
+                }
+
+
+                .value {
+                    width: 100%;
+                    text-align: right;
+                    display: inline-flex;
+                    justify-content: flex-end;
+
+                    b {
+                        width: fit-content;
+
+                        &.canPlay {
+                            position: relative;
+                            overflow: visible;
+                            margin-left: 1rem;
+
+                            &::before {
+                                top: 0;
+                                content: "";
+                                mask-image: $Ico-play;
+                                aspect-ratio: 1;
+                                height: 100%;
+                                display: block;
+                                position: absolute;
+                                background-color: var(--spice-subtext);
+                                height: 100%;
+                                mask-repeat: no-repeat;
+                                mask-size: 50%;
+                                mask-position: center;
+                                right: 100%;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                                color: var(--spice-text);
+                                text-decoration: underline;
+
+                                &::before {
+                                    background-color: var(--spice-text);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -2153,6 +2153,7 @@ declare namespace Spicetify {
 	 * Spotify's internal color class
 	 */
 	class Color {
+        static customProperties: string[];
 		constructor(rgb: rgb, hsl: hsl, hsv: hsv, alpha?: number);
 
 		static BLACK: Color;
