@@ -140,13 +140,13 @@
         max-width: 400px;
         aspect-ratio: 1;
         margin: 0 auto;
+        padding: 1%;
 
         .recharts-tooltip-wrapper {
             background-color: transparent !important;
         }
 
         .recharts-sector {
-            stroke: var(--spice-main-secondary);
             stroke-width: 1%;
         }
 

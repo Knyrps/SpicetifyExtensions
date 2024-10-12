@@ -8,3 +8,7 @@ export function customTrim(str: string, char: string) {
 
     return str.replace(regex, "");
 }
+
+export function shift(arr: any[]) {
+    return arr.map((_, i, a) => a[(i + a.length - 1) % a.length]);
+}

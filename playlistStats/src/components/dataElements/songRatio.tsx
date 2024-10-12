@@ -75,7 +75,7 @@ const SongRatio = () => {
     return (
         <div className="pieChart-wrapper">
             <div>
-                <h2>Song Ratio</h2>
+                <h2>Playlist Creator Ratio</h2>
                 <div className="pieChart-wrapper__pie">
                     <PieChart />
                 </div>
