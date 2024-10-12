@@ -61,7 +61,7 @@ const SongRatio = () => {
             value: averageSongLength || "Loading...",
         },
         {
-            title: "Oldest Song",
+            title: "First song in Playlist",
             value: oldestSong
                 ? `${new Date(oldestSong.added_at).toLocaleDateString(
                       "de-DE"

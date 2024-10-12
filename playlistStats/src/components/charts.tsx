@@ -40,11 +40,14 @@ const PieChart = React.memo(() => {
         return <div>No data available</div>;
     }
 
-    const colors = generateColorFade(
-        colorPalette.GetColor("subtext"),
-        colorPalette.GetColor("button-secondary"),
-        data.length
-    );
+    const colors =
+        data.length > 1
+            ? generateColorFade(
+                  colorPalette.GetColor("subtext"),
+                  colorPalette.GetColor("button-secondary"),
+                  data.length
+              )
+            : [colorPalette.GetColor("subtext")];
 
     return (
         <ResponsiveContainer width="100%" height="100%">
